@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class CategoryTest < ActiveSupport::TestCase
+class UserTest < ActiveSupport::TestCase
   def setup
     @user = User.new(username: "Adam", email:"adam91@mail.com", password:"password123")
   end

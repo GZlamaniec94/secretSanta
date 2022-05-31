@@ -1,0 +1,16 @@
+<h1 class="display-4 mt-5">Create new group</h1>
+
+<div class="container mt-5" id="new-group-container">
+  <%= form_with(model: @group, local: true) do |f|%>
+    <div class="input-group mb-3">
+        <%= f.label :name, class: "input-group-text" %>
+        <div class="col-10"> 
+          <%= f.text_field :name, class: "form-control shadow-lg rounded", placeholder: "Enter group name" %>
+        </div>   
+    </div>  
+    <div class="mt-4">     
+      <%= link_to "Cancel", groups_path(@groups),data: { confirm: "Your article will be not saved!"}, class: " btn btn-outline-danger btn-lg "%>
+      <%= f.submit class:"btn btn-outline-secondary btn-lg right "%>
+    </div>
+  <%end%>     
+</div>

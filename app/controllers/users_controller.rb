@@ -3,9 +3,9 @@ class UsersController < ApplicationController
   #   before_action :require_user, only: [:edit, :update]
   #   before_action :require_same_user, only: [:edit, :update, :destroy]
 
-  #   def show        
-  #       @articles = @user.articles.ordered.paginate(page: params[:page], per_page: 3 )   
-  #   end   
+     def show        
+         @groups = @user.groups   
+     end   
   #   def index
   #       @users = User.ordered.paginate(page: params[:page], per_page: 3 )
   #   end   
@@ -27,14 +27,14 @@ class UsersController < ApplicationController
   #   end    
     
      def create
-         @user = User.new(user_params)
-  #       if @user.save
-  #           session[:user_id] = @user.id
-  #           flash[:notice] = "Your account was creates successfully."
-  #           # redirect_to articles_path
-  #       else
-  #           render 'new'
-  #       end        
+        @user = User.new(user_params)
+        if @user.save
+          session[:user_id] = @user.id
+          flash[:notice] = "Your account was creates successfully."
+          redirect_to groups_path
+         else
+             render 'new'
+         end        
      end
     
   #   def destroy

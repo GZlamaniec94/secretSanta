@@ -5,12 +5,18 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params)
-    @group.user = current_user
+    @group.user = User.first
+    if  @group.save
+      flash[:notice] = "Group was created successfully"
+      redirect_to @group         
+    else
+      render 'new'
+    end    
   end  
 
   private 
   def group_params
-    params.require(:group).permit(:name, :member_ids[])
+    params.require(:group).permit(:name)
   end    
 
 end  

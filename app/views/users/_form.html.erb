@@ -1,0 +1,38 @@
+<div class="container shadow-lg p-3 rounded mt-4" id="create-account-container">
+  <%= form_with(model: @user, local: true) do |f|%>
+    <div class="row">            
+      <div class="card">
+        <div class="card-body">
+          <% if @user.new_record? %>
+            <h5 class="card-title">Create new account</h5>                 
+          <% else %>
+            <h5 class="card-title">Edit your account</h5>        
+          <% end %>
+          <div class="col-12">
+            <%= f.text_field :username, class: "form-control mt-3 rounded", placeholder: "Enter your username" %>
+          </div> 
+          <div class="col-12">
+            <%= f.text_field :email, class: "form-control mt-3 rounded", placeholder: "Enter your email" %>
+          </div>
+          <div class="col-12">
+            <%= f.password_field :password, class: "form-control mt-3 rounded", placeholder: "Enter your password" %>
+          </div>
+          <div class="card-body">
+            <% if @user.new_record? %>
+              <%= link_to "Back", login_path, data: { confirm: "Your account will be not created!"}, class: " btn btn-outline-secondary "%>
+              <%= f.submit "Create new account" , class:"btn btn-outline-success right " %>
+            <% else %>
+              <%= link_to "Back", groups_path, data: { confirm: "Your account will be not updated!"}, class: " btn btn-outline-secondary "%>
+              <%= f.submit "Update account" , class:"btn btn-outline-success right " %>
+            <% end %> 
+            <div>
+            <% if @user == current_user %>              
+              <%= link_to 'Delete account', user_path(@user), class: "btn btn-outline-danger right mt-3", method: :delete, data: { confirm: "Are you sure?" } %>              
+            <%end%>
+            </div>  
+          </div>                             
+        </div>        
+      </div>              
+    </div> 
+  <% end %> 
+</div>  

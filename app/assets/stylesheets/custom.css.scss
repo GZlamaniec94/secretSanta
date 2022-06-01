@@ -18,14 +18,20 @@ body {
 }
 
 #login-container{
-  width: 720px;
+  width: 400px;
 }
 
 #new-group-container{
   width: 450px;
   height: 250px;
 }
+#groups-index-container{
+  width: 700px; 
+}
 
+#create-account-container{
+  width: 500px;
+}
 .navbar{
     background: none;
 }

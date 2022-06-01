@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-
     def new    
     end
         
@@ -8,7 +7,7 @@ class SessionsController < ApplicationController
         if user && user.authenticate(params[:session][:password])
             session[:user_id] = user.id
             flash[:notice] = "Logged successfully."
-            redirect_to user
+            redirect_to groups_url
         else  
             flash.now[:alert] = "Your email or password was incorrect."
             render 'new'

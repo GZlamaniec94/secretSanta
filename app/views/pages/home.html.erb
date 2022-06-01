@@ -2,9 +2,11 @@
   <div class="jumbotron text-center font-weight-bold" id="jumbotron-home">
     <strong><i><h1 class="display-4">Secret Santa</h1></i></strong>
     <p class="lead">Welcome on Secret Santa, free online gift exchange organizer.</p>    
-    <p>To start you need to create account, just clik button below!</p>
+    <p>To start just clik button below!</p>
     <p class="lead">
-     <%= link_to "Start", login_path, class: "btn btn-danger btn-lg"  %>     
+      <% if !logged_in? %>
+        <%= link_to "Start", login_path, class: "btn btn-danger btn-lg"  %>    
+      <%end%> 
     </p>
   </div>
 </div>

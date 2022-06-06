@@ -1,7 +1,6 @@
 class Member < ApplicationRecord
   before_save { self.email = email.downcase }
-  has_many :group_members
-  has_many :groups, through: :group_members
+  belongs_to :group
   validates :name, presence: true, 
                        uniqueness: { case_sensitive: false },
                        length: {minimum: 3, maximum: 20}

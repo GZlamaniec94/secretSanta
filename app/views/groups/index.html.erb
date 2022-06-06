@@ -18,8 +18,8 @@
         <td><%= group.name %></td>
         <td><%= pluralize(group.members.count, "member") %></td>
         <td>
-            <button type="button" class="btn btn-outline-info btn-sm">  View  </button>
-            <button type="button" class="btn btn-outline-danger btn-sm">Delete</button>            
+            <%= link_to "View", group_path(group),  class: "btn btn-outline-info btn-sm"  %>
+            <%= link_to "Delete", group_path(group), method: :delete, data: { confirm: "Are you sure?"} , class: "btn btn-outline-danger btn-sm"%>
         </td>
       </tr>
     <% end %>  

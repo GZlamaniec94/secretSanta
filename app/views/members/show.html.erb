@@ -1,0 +1,26 @@
+<h1 class="display-4">Members</h1>
+<div class="container" id="members-input-container">
+  <% form_with(@group.members, local: :true) do |f|%>
+    <form class="row gy-2 gx-3 align-items-center">
+      <div class="col-auto">        
+        <div class="input-group">
+          <%= f.label :name, class: "input-group-text" %>
+        <div class="col-10"> 
+          <%= f.text_field :name, class: "form-control shadow-lg rounded", placeholder: "Enter member name" %>
+        </div>  
+        </div>
+      </div>  
+      <div class="col-auto">        
+        <div class="input-group">
+          <%= f.label :email, class: "input-group-text" %>
+        <div class="col-10"> 
+          <%= f.text_field :email, class: "form-control shadow-lg rounded", placeholder: "Enter member email" %>
+        </div>  
+        </div>
+      </div>  
+      <div class="col-auto">
+        <button type="submit" class="btn btn-danger">Delete</button>
+      </div>
+    </form>
+  <% end %>
+</div>

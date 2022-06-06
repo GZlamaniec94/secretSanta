@@ -1,0 +1,32 @@
+<h1 class="display-4 mt-5"><%= @group.id%></h1>
+<h1 class="display-4 mt-5">current_group: <%= session[:current_group_id] %></h1>
+
+
+<div class="text-center mt-3">
+  <%= link_to "Delete", group_path(@group), method: :delete, data: { confirm: "Are you sure?"} , class: "btn btn-outline-danger btn-lg justify-content-md-center"%>
+  <%= link_to "Change group name", edit_group_path(@group), class: "btn btn-outline-warning btn-lg justify-content-md-center"  %>
+  <%= link_to "Add members", new_member_path, class: "btn btn-outline-info btn-lg justify-content-md-center" %>
+  <button type="button" class="btn btn-outline-success btn-lg justify-content-md-center">Create event</button>
+</div>
+<div class="container mt-3" id="groups-index-container">
+  <table class="table ">
+    <thead>
+      <tr>
+        <th scope="col">Name</th> 
+        <th scope="col">Email</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @members.each do |member| %>
+      <tr>        
+        <td><%= member.name %></td>
+        <td><%= member.email %></td>
+        <td>
+          <button type="button" class="btn btn-outline-danger btn-sm">Delete</button>            
+        </td>
+      </tr>
+    <% end %>  
+    </tbody>
+  </table>
+</div>

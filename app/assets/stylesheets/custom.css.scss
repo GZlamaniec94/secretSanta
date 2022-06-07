@@ -1,4 +1,4 @@
-
+@import 'bootstrap/dist/css/bootstrap';
 body {
   background-image: url("snow2.png");
   background-repeat: repeat-y;
@@ -37,10 +37,9 @@ body {
   width: 700px;
 }
 
-#members-container{
-  background-color: aqua;
+#errors-container{
+  width: 700px;
 }
-
 .navbar{
     background: none;
 }

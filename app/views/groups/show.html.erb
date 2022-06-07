@@ -1,6 +1,4 @@
-<h1 class="display-4 mt-5"><%= @group.id%></h1>
-<h1 class="display-4 mt-5">current_group: <%= session[:current_group_id] %></h1>
-
+<h1 class="display-4 mt-5"><%= @group.name%></h1>
 
 <div class="text-center mt-3">
   <%= link_to "Delete", group_path(@group), method: :delete, data: { confirm: "Are you sure?"} , class: "btn btn-outline-danger btn-lg justify-content-md-center"%>
@@ -21,9 +19,9 @@
     <% @members.each do |member| %>
       <tr>        
         <td><%= member.name %></td>
-        <td><%= member.email %></td>
+        <td><%= member.email %></td>        
         <td>
-          <button type="button" class="btn btn-outline-danger btn-sm">Delete</button>            
+          <%= link_to "Delete", member_path(member), method: :delete, data: { confirm: "Are you sure?"} , class: "btn btn-outline-danger btn-sm"%>     
         </td>
       </tr>
     <% end %>  

@@ -1,10 +1,11 @@
-<h1 class="display-4 mt-5">current_group: <%= session[:current_group_id] %></h1>
+<%= render 'shared/errors', obj: @member %>
+<h1 class="display-4 mt-5">Add members to <%= Group.find_by_id(session[:current_group_id]).name %></h1>
 <div class="container mt-3" id="members-input-container">
   <%= form_with(model: @member, local: true) do |f|%>
     <div class="input-group mb-3">       
       <%= f.text_field :name, class: "form-control shadow-lg rounded", placeholder: "Enter member's name" %>
       <%= f.text_field :email, class: "form-control shadow-lg rounded", placeholder: "Enter member's email" %>         
-    </div>    
+    </div>     
     <%= f.submit class:"btn btn-outline-secondary btn-lg right "%>
     <%end%> 
 </div>    

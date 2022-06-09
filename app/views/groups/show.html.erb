@@ -1,10 +1,10 @@
 <h1 class="display-4 mt-5"><%= @group.name%></h1>
-
+<%= session[:current_group_id] %>
 <div class="text-center mt-3">
   <%= link_to "Delete", group_path(@group), method: :delete, data: { confirm: "Are you sure?"} , class: "btn btn-outline-danger btn-lg justify-content-md-center"%>
   <%= link_to "Change group name", edit_group_path(@group), class: "btn btn-outline-warning btn-lg justify-content-md-center"  %>
   <%= link_to "Add members", new_member_path, class: "btn btn-outline-info btn-lg justify-content-md-center" %>
-  <%= link_to "Create event", group_path(@group), method: :draw_email, class: "btn btn-outline-success btn-lg justify-content-md-center" %>
+  <%= link_to "Create event", group_create_event_path(@group), class: "btn btn-outline-success btn-lg justify-content-md-center" %>
 </div>
 <div class="container mt-3" id="groups-index-container">
   <table class="table ">

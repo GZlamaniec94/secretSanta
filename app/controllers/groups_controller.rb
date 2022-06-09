@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
-  before_action :require_user, only: [:show, :edit, :update, :destroy]
+  before_action :require_user, only: [:show, :edit, :update, :destroy, :create_event, :create_event]
   before_action :set_group, only: [:show, :edit, :update, :destroy]
-  
+  before_action :set_current_group_id, only: [:create_event]
   def new
     @group = Group.new
   end
@@ -26,6 +26,7 @@ class GroupsController < ApplicationController
     else
       render 'new'
     end    
+
   end  
 
   def destroy
@@ -44,4 +45,8 @@ class GroupsController < ApplicationController
     session[:current_group_id]=@group.id    
   end 
 
+  def set_current_group_id
+    @current_group_id = session[:current_group_id]
+  end 
+  
 end  
